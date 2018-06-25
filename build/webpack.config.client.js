@@ -24,7 +24,7 @@ if (isDev) {
             rules: [{
                 test: /\.styl/,
                 use: [
-                    'style-loader',
+                    'vue-style-loader',
                     'css-loader',
                     {
                         loader: 'postcss-loader',
@@ -52,7 +52,7 @@ if (isDev) {
 } else {
     config = merge(baseConfig, {
         entry: {
-            app: path.join(__dirname, '../src/index.js'),
+            app: path.join(__dirname, '../client/index.js'),
             vendor: ['vue']
         },
         output: {
@@ -62,7 +62,7 @@ if (isDev) {
             rules: [{
                 test: /\.styl/,
                 use: ExtractPlugin.extract({
-                    fallback: 'style-loader',
+                    fallback: 'vue-style-loader',
                     use: [
                         'css-loader',
                         {
